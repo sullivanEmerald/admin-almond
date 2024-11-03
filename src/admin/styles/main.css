@@ -1,0 +1,178 @@
+@import '../styles/variables.css';
+
+
+/****************************************
+    COMMON SYLINGS :  BUTTON, INPUTS
+*****************************************/
+
+button {
+    background: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px !important; 
+    width: 40%;
+    transition: all 1s ease-in-out;
+    display: block;
+    margin: 0 auto !important; 
+}
+
+
+button:hover{
+    opacity: 80%;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+/****************************************
+    ADMIN: REGISTRATION AND LOGIN SETTING
+*****************************************/
+.AdminProjectLinks {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 10px;
+    transition: all 0.3s ease-in;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.AdminProjectLinks:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 9999px;
+    transform: scale(1.1)
+}
+
+.projectLinks{
+    text-decoration: none;
+}
+
+/*********************************************************************
+    FORMS : LAYOUT && INPUTS && FORGOT PASSWORD && FORGOT PASSWORD
+***********************************************************************/
+.formDesignSetup {
+    width: 50%;
+    margin: 2% auto;
+    border: 1px solid var(--background-color);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.form-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+}
+
+.forgot_password_link{
+    position: absolute;
+    right: 5px;
+}
+
+
+.formInputField {
+    border-color: var(--background-color); 
+    box-shadow: none !important; 
+    border-radius: 5px; 
+    padding: 10px; 
+}
+
+.fieldLabel{
+    padding: 0 10px;
+    color: var(--background-color);
+}
+
+.formAsteriks{
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/****************************************
+    LOGIN
+*****************************************/
+
+.Login-header {
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    padding: 5px;
+}
+
+.form-section{
+    padding: 15px;
+}
+
+.adminIndex {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.mainHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+/****************************************
+    NAVIGATION BAR
+*****************************************/
+
+.admin_header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 17px;
+
+}
+
+.admin_list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 20px;
+    margin-top: 15px;
+}
+
+.admin_goto{
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 10px;
+}
+.admin_goto:hover{
+    color: var(--white-color);
+    background: var(--primary-color);
+    border-radius: 9999px;
+}
+.projectAdminLogo {
+    flex-basis: 10%;
+}
+
+
+
+
