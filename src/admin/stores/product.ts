@@ -1,12 +1,12 @@
 import { StateCreator } from "zustand";
-import { useUploadImageToCloudinnary } from "../services/global/api";
+import { uploadImageToCloudinary } from "../services/global/api";
 import {CreateProduct, ImageType} from "../types/product";
 
 interface ProductState {
     data: CreateProduct;
     imagePreview: string | null;
     imageFile: any;
-    multipleImagePreview: string[] | null;
+    multipleImagePreview: string[];
     multipleImageQueryFile: File[];
 }
 
@@ -17,7 +17,7 @@ interface ProductActions {
     uploadImageToCloudinary: () => Promise<void>;
     setMultipleImagePreviews: (previews: string[] | []) => void;
     setmultipleImageQueryFile: (files : File[]) => void;
-    setSubImages : (images : ImageType[] |  undefined) => void;
+    setSubImages : (image : ImageType) => void;
     resetForm: () => void;
 
 }
@@ -30,7 +30,7 @@ const initialState: CreateProduct = {
     price: '',
     category: '',
     image: null,
-    subImage:[]
+    subImage: [],
 };
 
 export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
@@ -51,7 +51,7 @@ export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
         if (!imageFile || !multipleImageQueryFile) return;
 
         try {
-            const { secure_url, public_id } = await useUploadImageToCloudinnary(imageFile);
+            const { secure_url, public_id } = await uploadImageToCloudinary(imageFile);
             set((state) => ({
                 data: { ...state.data, image: { secure_url, public_id } }
             }));
@@ -72,9 +72,17 @@ export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
 
     setImageFile: (file) => set({ imageFile: file }),
 
-    setSubImages : (images) => set((state) => ({
-        data : { ...state.data, subImage : [...state.data.subImage, ...(images ?? [])]}
+    setSubImages: (image: ImageType) => set((state) => ({
+        data: {
+            ...state.data,
+            subImage: [...state.data.subImage, image]
+        }
     })),
-
-    resetForm: () => set({ data: initialState, imagePreview: null, imageFile: null, multipleImagePreview: [] })
+   
+    resetForm: () => set(() => ({ 
+        data: initialState, 
+        imagePreview: null, 
+        imageFile: null, 
+        multipleImagePreview: [] 
+    }))
 });

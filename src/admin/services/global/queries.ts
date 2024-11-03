@@ -1,28 +1,36 @@
 import { useQueries } from '@tanstack/react-query';
+import { uploadImageToCloudinary } from './api';
 import useStore from '@/admin/stores/store';
-import { useUploadImageToCloudinnary } from './api';
-import uploadedImageTypeValue from '../../types/cloudinaryUpload';
+import { useEffect } from 'react';
+import { ImageType } from '@/admin/types/product';
 
-export const useMultipleImageUpload = (imageFiles : File[]) => {
-
-    const setSubImages = useStore(state => state.setSubImages);
-
-    const results = useQueries({
+export const useMultipleImageUpload = (imageFiles: File[]) => {
+    const queries = useQueries({
         queries: imageFiles.map((file) => ({
-            queryKey: ['images', { file }],
-            queryFn: () => useUploadImageToCloudinnary(file),
-            enabled: !!file, 
-        })),
+            queryKey: ['upload', file.name],
+            queryFn: () => uploadImageToCloudinary(file),
+            enabled: !!file,
+        }))
     });
 
-    const validSubImages = results
-        .filter((result) => result.isSuccess && result.data !== undefined)
-        .map((result) => {
-            const { secure_url, public_id } = result.data as uploadedImageTypeValue;
-            return { secure_url, public_id };
+    // Handle successful uploads using useEffect
+    useEffect(() => {
+        queries.forEach(query => {
+            if (query.isSuccess && query.data) {
+                const imageData: ImageType = {
+                    secure_url: query.data.secure_url,
+                    public_id: query.data.public_id
+                };
+                useStore.getState().setSubImages(imageData);
+            }
         });
+    }, [queries]);
 
-    
-
-    return { results, validSubImages };
+    return {
+        queries,
+        isLoading: queries.some(query => query.isLoading),
+        isError: queries.some(query => query.isError),
+        successCount: queries.filter(query => query.isSuccess).length,
+        totalCount: queries.length
+    };
 };

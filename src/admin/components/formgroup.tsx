@@ -2,7 +2,7 @@ import { Form } from 'react-bootstrap';
 import { FormData } from '../types/form';
 import SelectCategory from '../category/Select';
 import useStore from '../stores/store';
-import {CreateProduct} from '../types/product';
+import { CreateProduct } from '../types/product';
 import ImagePreview from './ImagePreview';
 import { HandleInputChange, HandleFileChange } from '../actions/product';
 import { useEffect } from 'react';
@@ -12,16 +12,23 @@ const FormGroup: React.FC<FormData> = ({ controlId, label, type, name, placehold
     const value = useStore((state) => state.data[name as keyof CreateProduct]) || '';
     const imagePreview = useStore((state) => state.imagePreview);
     const multipleImagePreviews = useStore((state) => state.multipleImagePreview || []);
-    const multipleImageQueryFile = useStore((state) =>state.multipleImageQueryFile)
-    
-  
+    const multipleImageQueryFile = useStore((state) => state.multipleImageQueryFile)
+
+
+    // Testing Image Upload
+    const upload = useMultipleImageUpload(multipleImageQueryFile)
+
+
+
     useEffect(() => {
-        if (multipleImageQueryFile && multipleImageQueryFile.length > 0) {
-           const queryfucntion = useMultipleImageUpload(multipleImageQueryFile);
-           console.log(queryfucntion)
+        if (upload.isLoading) {
+            <p> Uploading... {upload.successCount} of {upload.totalCount}</p>
+    
+            const data = useStore((state) => state.data.subImage)
+            console.log(data)
         }
     }, [multipleImageQueryFile]);
-   
+
 
 
     // const data = useStore((state) => state.data)

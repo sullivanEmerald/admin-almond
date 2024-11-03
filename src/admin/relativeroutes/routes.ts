@@ -1,5 +1,5 @@
 const relativeRoutes = {
-    route: 'admin',
+    route: '/',
     item: 'product',
     order: 'order',
     trade: 'trade'
