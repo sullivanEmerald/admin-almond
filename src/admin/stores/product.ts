@@ -1,5 +1,4 @@
 import { StateCreator } from "zustand";
-import { uploadImageToCloudinary } from "../services/global/api";
 import {CreateProduct, ImageType} from "../types/product";
 
 interface ProductState {
@@ -14,10 +13,10 @@ interface ProductActions {
     setData: (field: keyof CreateProduct, value: any) => void;
     setImagePreview: (preview: string | null) => void;
     setImageFile: (file: string | null) => void;
-    uploadImageToCloudinary: () => Promise<void>;
     setMultipleImagePreviews: (previews: string[] | []) => void;
     setmultipleImageQueryFile: (files : File[]) => void;
     setSubImages : (image : ImageType) => void;
+    setImage : ( image : ImageType) => void;
     resetForm: () => void;
 
 }
@@ -33,7 +32,7 @@ const initialState: CreateProduct = {
     subImage: [],
 };
 
-export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
+export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
     data: initialState,
     imagePreview: null,
     imageFile: null,
@@ -44,25 +43,6 @@ export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
         data: { ...state.data, [field]: value }
     })),
 
-    uploadImageToCloudinary: async () => {
-
-        const { imageFile, multipleImageQueryFile } = get();
-
-        if (!imageFile || !multipleImageQueryFile) return;
-
-        try {
-            const { secure_url, public_id } = await uploadImageToCloudinary(imageFile);
-            set((state) => ({
-                data: { ...state.data, image: { secure_url, public_id } }
-            }));
-
-        } catch (error) {
-            console.log(error);
-            return;
-        }
-
-        
-    },
 
     setImagePreview: (preview) => set({ imagePreview: preview }),
 
@@ -71,6 +51,13 @@ export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
     setmultipleImageQueryFile: (files) => set({ multipleImageQueryFile: files }),
 
     setImageFile: (file) => set({ imageFile: file }),
+
+    setImage : (image) => set((state) => ({
+        data : {
+            ...state.data,
+            image : image
+        }
+    })),
 
     setSubImages: (image: ImageType) => set((state) => ({
         data: {

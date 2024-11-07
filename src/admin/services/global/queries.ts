@@ -1,8 +1,35 @@
-import { useQueries } from '@tanstack/react-query';
+import {  useQueries, useQuery } from '@tanstack/react-query';
 import { uploadImageToCloudinary } from './api';
 import useStore from '@/admin/stores/store';
 import { useEffect } from 'react';
 import { ImageType } from '@/admin/types/product';
+
+
+
+export const useUploadProductPicture = (imageFile : File) => {
+
+    if(!imageFile) return;
+
+    const productImage = useStore.getState().setImage;
+
+    const query =  useQuery({
+        queryKey : ['fileUpload' , { imageFileName: imageFile.name }],
+        queryFn : () => uploadImageToCloudinary(imageFile),
+        enabled : !!imageFile
+    })
+
+    if(query.isSuccess && query.data){
+        productImage(query.data)
+    }
+
+    return {
+        data: query.data,
+        isloading : query.isLoading,
+        isError : query.isError,
+        isSuccess : query.isSuccess,
+    }
+
+}
 
 export const useMultipleImageUpload = (imageFiles: File[]) => {
 
