@@ -6,30 +6,32 @@ import { ImageType } from '@/admin/types/product';
 
 
 
-export const useUploadProductPicture = (imageFile : File) => {
-
-    if(!imageFile) return;
+export const useUploadProductPicture = (imageFile: File) => {
 
     const productImage = useStore.getState().setImage;
 
-    const query =  useQuery({
-        queryKey : ['fileUpload' , { imageFileName: imageFile.name }],
-        queryFn : () => uploadImageToCloudinary(imageFile),
-        enabled : !!imageFile
-    })
+    if (!imageFile) return { data: null, isLoading: false, isError: false, isSuccess: false };
 
-    if(query.isSuccess && query.data){
-        productImage(query.data)
-    }
+    const query = useQuery({
+        queryKey: ['singlefileppload', { imageFileName: imageFile.name }],
+        queryFn: () => uploadImageToCloudinary(imageFile),
+        enabled: !!imageFile,  
+    });
+
+    useEffect(() => {
+        if (query.isSuccess && query.data) {
+            productImage(query.data);
+        }
+    }, [query.isSuccess, query.data, productImage]);
 
     return {
         data: query.data,
-        isloading : query.isLoading,
-        isError : query.isError,
-        isSuccess : query.isSuccess,
-    }
+        isLoading: query.isLoading,
+        isError: query.isError,
+        isSuccess: query.isSuccess,
+    };
+};
 
-}
 
 export const useMultipleImageUpload = (imageFiles: File[]) => {
 
@@ -45,7 +47,6 @@ export const useMultipleImageUpload = (imageFiles: File[]) => {
 
     
 
-    // Handle successful uploads using useEffect
     useEffect(() => {
         queries.forEach(query => {
             if (query.isSuccess && query.data) {

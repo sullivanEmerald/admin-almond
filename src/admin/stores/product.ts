@@ -12,7 +12,7 @@ interface ProductState {
 interface ProductActions {
     setData: (field: keyof CreateProduct, value: any) => void;
     setImagePreview: (preview: string | null) => void;
-    setImageFile: (file: string | null) => void;
+    setImageFile: (file: File) => void;
     setMultipleImagePreviews: (previews: string[] | []) => void;
     setmultipleImageQueryFile: (files : File[]) => void;
     setSubImages : (image : ImageType) => void;

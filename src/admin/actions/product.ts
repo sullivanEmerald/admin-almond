@@ -31,7 +31,7 @@ export const HandleFileChange = async (e: React.ChangeEvent<HTMLInputElement>,) 
 
         const previewUrl = URL.createObjectURL(file[0]);
 
-        useStore.getState().setImageFile(previewUrl)
+        useStore.getState().setImageFile(file[0])
 
         useStore.getState().setImagePreview(previewUrl)
     }
