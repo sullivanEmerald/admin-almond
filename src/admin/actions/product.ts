@@ -1,6 +1,7 @@
 import {CreateProduct } from "../types/product";
 import useStore from "../stores/store";
 
+
 const setData = useStore.getState().setData;
 
 
@@ -25,7 +26,6 @@ export const HandleFileChange = async (e: React.ChangeEvent<HTMLInputElement>,) 
         
         useStore.getState().setMultipleImagePreviews(previews);
         useStore.getState().setmultipleImageQueryFile(fileArray)
-
 
     } else { 
 

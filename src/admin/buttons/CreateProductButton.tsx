@@ -1,10 +1,10 @@
-import useStore from "../stores/store"
+// import useStore from "../stores/store"
 
 
 const CreateProductButton = ({label} : { label : string}) => {
-    const data = useStore((state) => state.data)
+    // const data = useStore((state) => state.data)
     return (
-        <button type="submit" disabled={Object.values(data).some((item) => item === '')}>{label}</button>
+        <button type="submit">{label}</button>
     )
 }
 

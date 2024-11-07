@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import { ImageType } from '@/admin/types/product';
 
 export const useMultipleImageUpload = (imageFiles: File[]) => {
+
+    const setSubImages = useStore.getState().setSubImages;
+
     const queries = useQueries({
         queries: imageFiles.map((file) => ({
             queryKey: ['upload', file.name],
@@ -12,6 +15,8 @@ export const useMultipleImageUpload = (imageFiles: File[]) => {
             enabled: !!file,
         }))
     });
+
+    
 
     // Handle successful uploads using useEffect
     useEffect(() => {
@@ -21,10 +26,10 @@ export const useMultipleImageUpload = (imageFiles: File[]) => {
                     secure_url: query.data.secure_url,
                     public_id: query.data.public_id
                 };
-                useStore.getState().setSubImages(imageData);
+                setSubImages(imageData);
             }
         });
-    }, [queries]);
+    }, [queries, setSubImages]);
 
     return {
         queries,

@@ -5,40 +5,13 @@ import useStore from '../stores/store';
 import { CreateProduct } from '../types/product';
 import ImagePreview from './ImagePreview';
 import { HandleInputChange, HandleFileChange } from '../actions/product';
-import { useEffect } from 'react';
-import { useMultipleImageUpload } from '../services/global/queries';
 
 const FormGroup: React.FC<FormData> = ({ controlId, label, type, name, placeholder, multiple }) => {
     const value = useStore((state) => state.data[name as keyof CreateProduct]) || '';
     const imagePreview = useStore((state) => state.imagePreview);
     const multipleImagePreviews = useStore((state) => state.multipleImagePreview || []);
-    const multipleImageQueryFile = useStore((state) => state.multipleImageQueryFile)
 
-
-    // Testing Image Upload
-    const upload = useMultipleImageUpload(multipleImageQueryFile)
-
-
-
-    useEffect(() => {
-        if (upload.isLoading) {
-            <p> Uploading... {upload.successCount} of {upload.totalCount}</p>
     
-            const data = useStore((state) => state.data.subImage)
-            console.log(data)
-        }
-    }, [multipleImageQueryFile]);
-
-
-
-    // const data = useStore((state) => state.data)
-
-    // useEffect(() => {
-    //     console.log('data for upload', data)
-    // },[multipleImageQueryFile])
-
-
-
     return (
         <>
             <Form.Group controlId={controlId}>
