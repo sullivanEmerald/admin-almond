@@ -1,44 +1,52 @@
-import {  useQueries, useQuery } from '@tanstack/react-query';
+import {  useQueries, useMutation } from '@tanstack/react-query';
 import { uploadImageToCloudinary } from './api';
 import useStore from '@/admin/stores/store';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useCallback } from 'react';
 import { ImageType } from '@/admin/types/product';
 
 
 
-export const useUploadProductPicture = (imageFile: File) => {
+export const useUploadProductPicture = () => {
 
-    const productImage = useStore.getState().setImage;
+    const setImage = useStore((state) => state.setImage);
 
-    if (!imageFile) return { data: null, isLoading: false, isError: false, isSuccess: false };
-
-    const query = useQuery({
-        queryKey: ['singlefileppload', { imageFileName: imageFile.name }],
-        queryFn: () => uploadImageToCloudinary(imageFile),
-        enabled: !!imageFile,  
+    const mutation = useMutation({
+        mutationFn: (file: File) => uploadImageToCloudinary(file),
+        onSuccess: (data) => {
+            setImage(data);
+        }
     });
 
-    useEffect(() => {
-        if (query.isSuccess && query.data) {
-            productImage(query.data);
+
+    const uploadImage = useCallback((file: File) => {
+        if (file) {
+            mutation.mutate(file);
         }
-    }, [query.isSuccess, query.data, productImage]);
+    }, [mutation]);
+
+
+    
 
     return {
-        data: query.data,
-        isLoading: query.isLoading,
-        isError: query.isError,
-        isSuccess: query.isSuccess,
+        uploadImage,
+        data: mutation.data,
+        isLoading: mutation.isPending,
+        isError: mutation.isError,
+        isSuccess: mutation.isSuccess,
+        error: mutation.error
     };
 };
 
 
-export const useMultipleImageUpload = (imageFiles: File[]) => {
+export const useMultipleImageUpload = (imageFiles: File[] ) => {
+
 
     const setSubImages = useStore.getState().setSubImages;
 
+    const stableFiles = useMemo(() => imageFiles.filter(file => !!file), [imageFiles]);
+
     const queries = useQueries({
-        queries: imageFiles.map((file) => ({
+        queries: stableFiles.map((file) => ({
             queryKey: ['upload', file.name],
             queryFn: () => uploadImageToCloudinary(file),
             enabled: !!file,
@@ -54,6 +62,7 @@ export const useMultipleImageUpload = (imageFiles: File[]) => {
                     secure_url: query.data.secure_url,
                     public_id: query.data.public_id
                 };
+                console.log('Uploaded image data:', imageData);
                 setSubImages(imageData);
             }
         });

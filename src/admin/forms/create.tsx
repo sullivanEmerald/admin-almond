@@ -5,7 +5,9 @@ import CreateProductButton from '../buttons/CreateProductButton';
 import { useProductSubmission } from '../Hooks/useProductSubmission.ts';
 
 const ProductForm = () => {
+
     const {handleSubmit} = useProductSubmission()
+    
     return (
         <>
             <Form className='form-container' onSubmit={handleSubmit}>
