@@ -1,7 +1,7 @@
 import {  useQueries, useQuery } from '@tanstack/react-query';
 import { uploadImageToCloudinary } from './api';
 import useStore from '@/admin/stores/store';
-import { useEffect, useMemo, } from 'react';
+import { useEffect, } from 'react';
 import { ImageType } from '@/admin/types/product';
 
 export const useUploadProductPicture = (file  : File) => {
@@ -39,13 +39,8 @@ export const useUploadProductPicture = (file  : File) => {
 
 export const useMultipleImageUpload = (imageFiles: File[] ) => {
 
-
-    const setSubImages = useStore.getState().setSubImages;
-
-    const stableFiles = useMemo(() => imageFiles.filter(file => !!file), [imageFiles]);
-
     const queries = useQueries({
-        queries: stableFiles ? stableFiles.map((file) => ({
+        queries: imageFiles ? imageFiles.map((file) => ({
             queryKey: ['upload', file.name],
             queryFn: () => uploadImageToCloudinary(file),
             enabled: !!file,
@@ -61,14 +56,18 @@ export const useMultipleImageUpload = (imageFiles: File[] ) => {
                     secure_url: query.data.secure_url,
                     public_id: query.data.public_id
                 };
-                console.log('Uploaded image data:', imageData);
-                setSubImages(imageData);
+                useStore.setState((state) =>({
+                    data : {
+                        ...state.data,
+                        subImage : state.data.subImage.length > 0 ? [...state.data.subImage, imageData] : [imageData]
+                    }
+                }))
             }
         });
-    }, [queries, setSubImages]);
+    }, [queries]);
 
     return {
-        queries,
+        queriesData : queries,
         isLoading: queries.some(query => query.isLoading),
         isError: queries.some(query => query.isError),
         successCount: queries.filter(query => query.isSuccess).length,
