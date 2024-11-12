@@ -6,7 +6,7 @@ const uploadPreset = import.meta.env.VITE_UPLOAD_PRESET;
 
 const axiosInstance = axios.create({ baseURL : `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`})
 
-export const uploadImageToCloudinary = async (file : any) : Promise<uploadedImageTypeValue> => {
+export const uploadImageToCloudinary = async (file : File) : Promise<uploadedImageTypeValue> => {
     
     const fileData = new FormData();
 

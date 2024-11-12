@@ -10,7 +10,7 @@ const ProductForm = () => {
     
     return (
         <>
-            <Form className='form-container' onSubmit={handleSubmit}>
+            <Form className='form-container' onSubmit={handleSubmit} >
                 {productFormData.map(({ controlId, label, type, name, placeholder, multiple }) => (
                     <FormGroup
                         key={controlId} 

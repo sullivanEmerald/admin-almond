@@ -1,40 +1,39 @@
-import {  useQueries, useMutation } from '@tanstack/react-query';
+import {  useQueries, useQuery } from '@tanstack/react-query';
 import { uploadImageToCloudinary } from './api';
 import useStore from '@/admin/stores/store';
-import { useEffect, useMemo, useCallback } from 'react';
+import { useEffect, useMemo, } from 'react';
 import { ImageType } from '@/admin/types/product';
 
+export const useUploadProductPicture = (file  : File) => {
+  const uploadQuery = useQuery({
+    queryKey: ['uploadedImage', file],
+    queryFn: () => uploadImageToCloudinary(file),
+    retry: 2,
+    enabled: !!file,
+  });
 
-
-export const useUploadProductPicture = () => {
-
-    const setImage = useStore((state) => state.setImage);
-
-    const mutation = useMutation({
-        mutationFn: (file: File) => uploadImageToCloudinary(file),
-        onSuccess: (data) => {
-            setImage(data);
+  useEffect(() => {
+        if(uploadQuery.isSuccess && uploadQuery.data){
+            const imageData: ImageType = {
+                secure_url: uploadQuery.data.secure_url,
+                public_id: uploadQuery.data.public_id
+            };
+            useStore.setState((state) => ({
+                data : {
+                    ...state.data,
+                    image : imageData
+                }, 
+            }))
         }
-    });
+  }, [uploadQuery.isSuccess, uploadQuery.data])
 
-
-    const uploadImage = useCallback((file: File) => {
-        if (file) {
-            mutation.mutate(file);
-        }
-    }, [mutation]);
-
-
-    
-
-    return {
-        uploadImage,
-        data: mutation.data,
-        isLoading: mutation.isPending,
-        isError: mutation.isError,
-        isSuccess: mutation.isSuccess,
-        error: mutation.error
-    };
+  return {
+    data : uploadQuery,
+    isLoading : uploadQuery.isLoading,
+    isError : uploadQuery.isError,
+    isSuccess: uploadQuery.isSuccess,
+    error : uploadQuery.error
+  };
 };
 
 
@@ -46,11 +45,11 @@ export const useMultipleImageUpload = (imageFiles: File[] ) => {
     const stableFiles = useMemo(() => imageFiles.filter(file => !!file), [imageFiles]);
 
     const queries = useQueries({
-        queries: stableFiles.map((file) => ({
+        queries: stableFiles ? stableFiles.map((file) => ({
             queryKey: ['upload', file.name],
             queryFn: () => uploadImageToCloudinary(file),
             enabled: !!file,
-        }))
+        })) : []
     });
 
     
