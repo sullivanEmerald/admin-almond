@@ -25,7 +25,7 @@ export const useProductSubmission = () => {
 
 
         if(queriesData && successCount === totalCount ){
-            console.log('this is the result of multiple image upload', useStore.getState().data.subImage)
+            console.log('this is the result of multiple image upload', useStore.getState().data)
         }
 
         try {
