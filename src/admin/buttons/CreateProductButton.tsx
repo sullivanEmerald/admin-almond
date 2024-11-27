@@ -1,10 +1,11 @@
-// import useStore from "../stores/store"
+import isDisabled from "../helperfunctions/createProduct"
 
 
 const CreateProductButton = ({label} : { label : string}) => {
-    // const data = useStore((state) => state.data)
     return (
-        <button type="submit">{label}</button>
+        <button type="submit" disabled={isDisabled}>
+            {label}
+        </button>  
     )
 }
 

@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import {CreateProduct, ImageType} from "../types/product";
+import { CreateProduct, ImageType } from "../types/product";
 
 interface ProductState {
     data: CreateProduct;
@@ -14,9 +14,9 @@ interface ProductActions {
     setImagePreview: (preview: string | null) => void;
     setImageFile: (file: File) => void;
     setMultipleImagePreviews: (previews: string[] | []) => void;
-    setmultipleImageQueryFile: (files : File[]) => void;
-    setSubImages : (image : ImageType) => void;
-    setImage : ( image : ImageType) => void;
+    setmultipleImageQueryFile: (files: File[]) => void;
+    setSubImages: (image: ImageType) => void;
+    setImage: (image: ImageType) => void;
     resetForm: () => void;
 
 }
@@ -39,10 +39,12 @@ export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
     multipleImagePreview: [],
     multipleImageQueryFile: [],
 
-    setData: (field, value) => set((state) => ({
-        data: { ...state.data, [field]: value }
-    })),
-
+    setData: (field, value) => set((state) => {
+        const trimmedValue = value.trim();
+        return {
+            data: { ...state.data, [field]: trimmedValue }
+        }
+    }),
 
     setImagePreview: (preview) => set({ imagePreview: preview }),
 
@@ -52,10 +54,10 @@ export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
 
     setImageFile: (file) => set({ imageFile: file }),
 
-    setImage : (image) => set((state) => ({
-        data : {
+    setImage: (image) => set((state) => ({
+        data: {
             ...state.data,
-            image : image
+            image: image
         }
     })),
 
@@ -65,11 +67,11 @@ export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
             subImage: [...state.data.subImage, image]
         }
     })),
-   
-    resetForm: () => set(() => ({ 
-        data: initialState, 
-        imagePreview: null, 
-        imageFile: null, 
-        multipleImagePreview: [] 
+
+    resetForm: () => set(() => ({
+        data: initialState,
+        imagePreview: null,
+        imageFile: null,
+        multipleImagePreview: []
     }))
 });
