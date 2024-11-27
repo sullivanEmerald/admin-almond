@@ -1,11 +1,13 @@
-import isDisabled from "../helperfunctions/createProduct"
+import useProductDisabledButton from "../Hooks/useDisabledButton"
 
+const CreateProductButton = ({ label }: { label: string }) => {
 
-const CreateProductButton = ({label} : { label : string}) => {
+    const { isDisabled } = useProductDisabledButton()
+
     return (
         <button type="submit" disabled={isDisabled}>
             {label}
-        </button>  
+        </button>
     )
 }
 
