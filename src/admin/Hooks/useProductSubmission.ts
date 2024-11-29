@@ -31,15 +31,15 @@ export const useProductSubmission = () => {
                     const validatedData = await productValidateSchema.validate(formData, {
                         abortEarly: false
                     });
-                    
+
                     console.log('Validation successful:', validatedData);
-                    
+
                     // Process validated data
                     if (queriesData && successCount === totalCount) {
                         console.log('All images uploaded successfully');
                         // Proceed with your submission logic
                     }
-                    
+
                 } catch (validationError) {
                     if (validationError instanceof yup.ValidationError) {
                         const errors: Record<string, string> = {};
@@ -65,6 +65,6 @@ export const useProductSubmission = () => {
     return {
         handleSubmit,
         isSubmitting,
-        validationErrors, // Return validation errors for UI feedback
+        validationErrors,
     };
 };

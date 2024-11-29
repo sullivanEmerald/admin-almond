@@ -1,5 +1,5 @@
 import { Form } from 'react-bootstrap';
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { FormData } from '../types/form';
 import SelectCategory from '../category/Select';
 import useStore from '../stores/store';
@@ -7,7 +7,7 @@ import { CreateProduct } from '../types/product';
 import ImagePreview from './ImagePreview';
 import { HandleInputChange, HandleFileChange } from '../actions/product';
 
-const FormGroup: React.FC<FormData> = ({ controlId, label, type, name, placeholder, multiple }) => {
+const FormGroup: React.FC<FormData> = ({ controlId, label, type, name, placeholder, multiple, validationError }) => {
     const [isUploading, setIsUploading] = useState<boolean>(false);
     const value = useStore((state) => state.data[name as keyof CreateProduct]) || '';
     const imagePreview = useStore((state) => state.imagePreview);
@@ -25,19 +25,19 @@ const FormGroup: React.FC<FormData> = ({ controlId, label, type, name, placehold
 
 
     // In your FormGroup component, add:
-useEffect(() => {
-    // Cleanup function
-    return () => {
-        if (imagePreview) {
-            URL.revokeObjectURL(imagePreview);
-        }
-        multipleImagePreviews.forEach(preview => {
-            URL.revokeObjectURL(preview);
-        });
-    };
-}, [imagePreview, multipleImagePreviews]);
+    useEffect(() => {
+        // Cleanup function
+        return () => {
+            if (imagePreview) {
+                URL.revokeObjectURL(imagePreview);
+            }
+            multipleImagePreviews.forEach(preview => {
+                URL.revokeObjectURL(preview);
+            });
+        };
+    }, [imagePreview, multipleImagePreviews]);
 
-    
+
     return (
         <>
             <Form.Group controlId={controlId}>
@@ -89,7 +89,14 @@ useEffect(() => {
                                 value={value as string}
                                 className="formInputField"
                                 onChange={HandleInputChange}
+                                isValid={!!validationError}
                             />
+                        )}
+
+                        {validationError && (
+                            <Form.Control.Feedback type="invalid" className="d-block">
+                                {validationError}
+                            </Form.Control.Feedback>
                         )}
                     </>
                 )}

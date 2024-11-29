@@ -6,7 +6,7 @@ import { useProductSubmission } from '../Hooks/useProductSubmission';
 
 const ProductForm = () => {
 
-    const { handleSubmit } = useProductSubmission()
+    const { handleSubmit, validationErrors } = useProductSubmission()
 
     return (
         <>
@@ -20,6 +20,7 @@ const ProductForm = () => {
                         name={name}
                         placeholder={placeholder}
                         multiple={multiple}
+                        validationError={validationErrors[name]}
                     />
                 ))}
                 <CreateProductButton label='Create Product' />
