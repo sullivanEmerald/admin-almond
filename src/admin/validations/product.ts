@@ -9,20 +9,6 @@ const isValidUrl = (url: string) => {
     }
 }
 
-
-// const imageUrlSchema = yup.object({
-//     secure_url: yup
-//         .string()
-//         .required('Secure URL is required')
-//         .test('is-url', 'Invalid public URL format', isValidUrl),
-
-//     public_url: yup
-//         .string()
-//         .required('Public URL is required')
-//         .test('is-url', 'Invalid public URL format', isValidUrl),
-
-// })
-
 const productValidateSchema = yup.object({
     name: yup
         .string()
@@ -36,8 +22,9 @@ const productValidateSchema = yup.object({
 
 
     price: yup
-        .string()
-        .trim()
+        .number()
+        .typeError('Price must be a valid number')
+        .positive('Price must be a positive whole number')
         .required('product price is required'),
 
     category: yup
