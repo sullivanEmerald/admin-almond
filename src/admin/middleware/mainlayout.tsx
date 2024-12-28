@@ -1,11 +1,15 @@
 import Welcome from "../components/welcome"
 import { Outlet } from "react-router-dom";
+import LandingPageOutlet from "./landingPage";
 
 const MainLayout = () => {
     return (
         <>
-            <Welcome />
-            <Outlet />
+            <LandingPageOutlet>
+                <Outlet />
+            </LandingPageOutlet>
+            {/* <Welcome /> */}
+
         </>
     )
 }

@@ -15,20 +15,57 @@ button {
     padding: 10px;
     outline: none;
     border: none;
-    border-radius: 10px !important; 
+    border-radius: 10px !important;
     width: 40%;
     transition: all 1s ease-in-out;
     display: block;
-    margin: 0 auto !important; 
+    margin: 0 auto !important;
 }
 
 
-button:hover{
+button:hover {
     opacity: 80%;
 }
 
 button:disabled {
     cursor: not-allowed;
+}
+
+
+/****************************************
+    ADMIN: LANDING PAGE
+*****************************************/
+
+.landingPageBackground {
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.landingBackgroungImage {
+    border-radius: 0 7px 7px 0;
+    object-fit: cover;
+    width: auto;
+    display: block;
+    height: 100%;
+}
+
+.landingPageBackgroundCover {
+    top: 0;
+    position: absolute;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    padding-block: 40%;
+}
+
+.landingWelcomeNote {
+    background: #fff;
 }
 
 /****************************************
@@ -50,7 +87,7 @@ button:disabled {
     transform: scale(1.1)
 }
 
-.projectLinks{
+.projectLinks {
     text-decoration: none;
 }
 
@@ -67,7 +104,7 @@ button:disabled {
 }
 
 
-.form-container{
+.form-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -75,25 +112,25 @@ button:disabled {
     padding: 10px;
 }
 
-.forgot_password_link{
+.forgot_password_link {
     position: absolute;
     right: 5px;
 }
 
 
 .formInputField {
-    border-color: var(--background-color); 
-    box-shadow: none !important; 
-    border-radius: 5px; 
-    padding: 10px; 
+    border-color: var(--background-color);
+    box-shadow: none !important;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-.fieldLabel{
+.fieldLabel {
     padding: 0 10px;
     color: var(--background-color);
 }
 
-.formAsteriks{
+.formAsteriks {
     color: var(--secondary-color);
     font-weight: bold;
     font-size: 15px;
@@ -114,7 +151,7 @@ button:disabled {
     padding: 5px;
 }
 
-.form-section{
+.form-section {
     padding: 15px;
 }
 
@@ -129,7 +166,7 @@ button:disabled {
     color: var(--primary-color);
 }
 
-.mainHeader{
+.mainHeader {
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -140,7 +177,7 @@ button:disabled {
     NAVIGATION BAR
 *****************************************/
 
-.admin_header{
+.admin_header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -149,7 +186,7 @@ button:disabled {
 
 }
 
-.admin_list{
+.admin_list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -159,20 +196,18 @@ button:disabled {
     margin-top: 15px;
 }
 
-.admin_goto{
+.admin_goto {
     text-decoration: none;
     color: var(--primary-color);
     padding: 10px;
 }
-.admin_goto:hover{
+
+.admin_goto:hover {
     color: var(--white-color);
     background: var(--primary-color);
     border-radius: 9999px;
 }
+
 .projectAdminLogo {
     flex-basis: 10%;
 }
-
-
-
-
