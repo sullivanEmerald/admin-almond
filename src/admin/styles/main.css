@@ -37,36 +37,48 @@ button:disabled {
 *****************************************/
 
 .landingPageBackground {
-    position: relative;
+    position: fixed;
     width: 50%;
     height: 100vh;
     overflow: hidden;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .landingBackgroungImage {
-    border-radius: 0 7px 7px 0;
+    width: 100%;
+    height: inherit;
     object-fit: cover;
-    width: auto;
-    display: block;
-    height: 100%;
+    object-position: center;
 }
 
 .landingPageBackgroundCover {
-    top: 0;
     position: absolute;
-    backdrop-filter: blur(5px);
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(4px);
     text-align: center;
     color: var(--primary-color);
     font-size: 25px;
     font-weight: bold;
-    width: 100%;
-    height: 100%;
-    padding-block: 40%;
+    padding-block: 50%;
 }
 
 .landingWelcomeNote {
     background: #fff;
+    border-radius: 3px;
 }
+
+/* .landingPageOutlet {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border: 1px solid red;
+} */
+
+/* .landingPageOutlet>* {
+    flex-basis: 10%;
+} */
 
 /****************************************
     ADMIN: REGISTRATION AND LOGIN SETTING
@@ -95,14 +107,14 @@ button:disabled {
     FORMS : LAYOUT && INPUTS && FORGOT PASSWORD && FORGOT PASSWORD
 ***********************************************************************/
 .formDesignSetup {
-    width: 50%;
-    margin: 2% auto;
     border: 1px solid var(--background-color);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-
+    width: 40%;
+    position: absolute;
+    top: 30px;
+    right: 60px;
 }
-
 
 .form-container {
     position: relative;

@@ -1,4 +1,4 @@
-import Welcome from "../components/welcome"
+// import Welcome from "../components/welcome"
 import { Outlet } from "react-router-dom";
 import LandingPageOutlet from "./landingPage";
 

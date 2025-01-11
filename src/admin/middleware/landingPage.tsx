@@ -6,7 +6,7 @@ type LandingPageOutletProps = {
 const LandingPageOutlet: React.FC<LandingPageOutletProps> = ({ children }) => {
     return (
         <>
-            <section>
+            <section className='landingPageOutlet'>
                 <aside>
                     <LandingPageIndex />
                 </aside>
