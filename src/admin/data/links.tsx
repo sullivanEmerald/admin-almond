@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faEye, faTrademark } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faEye, faTrademark, faRightFromBracket, } from "@fortawesome/free-solid-svg-icons";
 import { product, trades, orders } from "../apis/panel";
 
 const Navlinks = [
+
 
     {
         label: 'Create product',
@@ -28,7 +29,17 @@ const Navlinks = [
         icon: <FontAwesomeIcon icon={faEye} />
     },
 
+    {
+        label: 'Create Category',
+        href: orders.view,
+        icon: <FontAwesomeIcon icon={faPlus} />
+    },
 
+    {
+        label: 'Logout',
+        href: orders.view,
+        icon: <FontAwesomeIcon icon={faRightFromBracket} />
+    },
 
 ]
 

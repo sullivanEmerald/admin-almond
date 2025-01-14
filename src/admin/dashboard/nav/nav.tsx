@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import Navlinks from "../data/links";
+import Navlinks from "@/admin/data/links";
 
-const AdminLinks = () => {
+const Navigation = () => {
     return (
         <>
             <nav>
@@ -9,7 +9,7 @@ const AdminLinks = () => {
                     {Navlinks?.map(({ label, href, icon }, index) => (
                         <li key={index} className="admin_links">
                             <Link className="admin_goto" to={href}>{icon} {label}</Link>
-                        </li> 
+                        </li>
                     ))}
                 </ul>
             </nav>
@@ -17,4 +17,4 @@ const AdminLinks = () => {
     )
 }
 
-export default AdminLinks;
+export default Navigation;

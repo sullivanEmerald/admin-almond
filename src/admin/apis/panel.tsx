@@ -1,5 +1,5 @@
 import relativeRoutes from "../relativeroutes/routes"
-const { route, item, order, trade} = relativeRoutes
+const { route, item, order, trade, dashboard } = relativeRoutes
 
 
 const adminApis = {
@@ -8,7 +8,7 @@ const adminApis = {
         register: 'register',
     },
     admin: {
-        dashboard: 'dashboard',
+        dashboard: dashboard,
     },
     product: {
         create: `${item}/create`,

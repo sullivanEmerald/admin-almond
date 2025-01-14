@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { admin } from "../apis/panel";
-const AppLogo = () => {
+
+const Logo = () => {
     return (
         <>
-            <Link to={admin.dashboard} className='projectLinks'>
-                Almond
+            <Link to={admin.dashboard}>
+                <img src="/images/dashboard/logo.png" alt="logo" className="logo-image" />
             </Link>
         </>
-    )
-}
+    );
+};
 
-export default AppLogo;
+export default Logo;

@@ -1,5 +1,5 @@
-interface FormLayoutChildren {
+interface nestedChildren {
     children: React.ReactNode;
 }
 
-export default FormLayoutChildren;
+export default nestedChildren;
