@@ -1,7 +1,9 @@
 :root {
-    --primary-color : #15357a;
-    --secondary-color : crimson;
-    --color : #15357a;
-    --disabled-color : gray;
-    --white-color : #fff;
+    --primary-color: #15357a;
+    --secondary-color: crimson;
+    --color: #15357a;
+    --disabled-color: gray;
+    --white-color: #fff;
+    --background-color: #b5c2c9;
+    --element-background-color: #f1f3f4;
 }

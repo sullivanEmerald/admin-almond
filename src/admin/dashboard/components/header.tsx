@@ -1,9 +1,11 @@
+import HeaderContent from "../contents/headerContent";
 
-
-const Header = () => {
+const DashboardHeader = () => {
     return (
-        <div>header</div>
+        <>
+            <HeaderContent />
+        </>
     )
 }
 
-export default Header;
+export default DashboardHeader;

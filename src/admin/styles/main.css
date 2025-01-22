@@ -6,7 +6,7 @@
 *****************************************/
 
 body {
-    background-color: #b5c2c9 !important;
+    background-color: var(--background-color) !important;
 }
 
 button {
@@ -193,10 +193,19 @@ button:disabled {
     NAVIGATION BAR
 *****************************************/
 
+.logo-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--background-color);
+    width: 90%;
+}
+
 .logo-image {
-    width: 50%;
+    width: 60%;
     object-fit: cover;
-    display: block;
+    display: inline-block;
+    align-self: center;
 }
 
 
@@ -226,6 +235,7 @@ button:disabled {
 
 .admin_goto {
     text-decoration: none;
+    padding: 10px;
     color: var(--primary-color);
 }
 
@@ -243,15 +253,41 @@ button:disabled {
 /****************************************
     DASHBOARD
 *****************************************/
+.dashboardLayout {
+    padding: 5px;
+}
+
+/****************************************
+        ASIDE
+*****************************************/
 
 .dashboarodLogoAndNav {
-    background: #f1f3f4;
+    background: var(--element-background-color);
     width: 20%;
     border-radius: 10px;
-    height: 100vh;
+    height: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
-    flex-wrap: nowrap;
+    align-items: center;
+    row-gap: 20px;
+    padding-top: 20px;
+    position: fixed;
+}
+
+
+/*****************************************
+    DASHBOARD HEADER
+******************************************/
+
+
+.mainLayOut {
+    margin-left: 21%;
+    width: calc(79% - 10px);
+}
+
+.headerContainer {
+    background: var(--white-color);
+    border-radius: 10px;
+    padding-inline: 20px;
+    padding-block: 20px;
 }

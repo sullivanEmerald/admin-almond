@@ -1,8 +1,14 @@
-
+import Logo from "@/admin/components/logo"
+import Navigation from "../contents/nav"
 
 const Aside = () => {
   return (
-    <div>navigation</div>
+    <>
+      <aside className="dashboarodLogoAndNav">
+        <Logo />
+        <Navigation />
+      </aside>
+    </>
   )
 }
 

@@ -1,19 +1,15 @@
 import nestedChildren from "@/admin/types/layout";
-import Navigation from "../nav/nav";
-import Logo from "@/admin/components/logo";
+import Aside from "../components/aside";
+import Header from "../components/header";
+
 
 const DashboardStructure: React.FC<nestedChildren> = ({ children }) => {
     return (
         <>
-            <div>
-                <aside className="dashboarodLogoAndNav">
-                    <Logo />
-                    <Navigation />
-                </aside>
-                <section>
-                    <header>
-                        <p>Sullivan, A phenominal software Engineer</p>
-                    </header>
+            <div className="dashboardLayout">
+                <Aside />
+                <section className="mainLayOut">
+                    <Header />
                     <main>
                         {children}
                     </main>
