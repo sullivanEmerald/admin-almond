@@ -118,6 +118,19 @@ button:disabled {
     position: absolute;
     top: 30px;
     right: 60px;
+    background: var(--white-color);
+    color: var(--primary-color);
+}
+
+
+.dashboardFormDesignSetup {
+    border: 1px solid var(--background-color);
+    border-radius: 5px;
+    box-shadow: 0 0 15px var(--primary-color);
+    width: 80%;
+    background: var(--white-color);
+    color: var(--primary-color);
+    margin: 10px auto;
 }
 
 .form-container {
@@ -290,4 +303,28 @@ button:disabled {
     border-radius: 10px;
     padding-inline: 20px;
     padding-block: 20px;
+    position: relative;
+
+}
+
+.headerContainer {
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
+}
+
+.headerContainerInput {
+    padding-right: 40px;
+    font-size: 14px;
+    background: #f1f3f4;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
 }

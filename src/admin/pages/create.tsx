@@ -5,12 +5,11 @@ import ProductForm from "../forms/create";
 const CreateProduct = () => {
     return (
         <>
-            <section>
-                <FormLayout >
-                    <FormHeader name="Create Product" />
-                    <ProductForm />
-                </FormLayout>
-            </section>
+
+            <FormLayout isDashboard={true} >
+                <FormHeader name="Create Product" />
+                <ProductForm />
+            </FormLayout>
         </>
     )
 }

@@ -1,8 +1,8 @@
 import FormLayoutChildren from "../types/layout";
 
-const FormLayout: React.FC<FormLayoutChildren> = ({ children }) => {
+const FormLayout: React.FC<FormLayoutChildren> = ({ children, isDashboard }) => {
     return (
-        <div className="formDesignSetup">
+        <div className={isDashboard ? 'dashboardFormDesignSetup' : 'formDesignSetup'}>
             {children}
         </div>
     );
