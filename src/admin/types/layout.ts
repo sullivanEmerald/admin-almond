@@ -1,6 +1,8 @@
-interface nestedChildren {
+export interface nestedChildren {
     children: React.ReactNode;
     isDashboard: boolean
 }
 
-export default nestedChildren;
+export interface nestedChildrenOnly {
+    children: React.ReactNode;
+}

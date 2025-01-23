@@ -1,11 +1,13 @@
-import HeaderContent from "../contents/headerContent";
-
-const DashboardHeader = () => {
+import DashbooardContentLayout from '@/admin/middleware/dashboardContent';
+import HeaderContent from '../contents/headerContent';
+const Header = () => {
     return (
         <>
-            <HeaderContent />
+            <DashbooardContentLayout>
+                <HeaderContent />
+            </DashbooardContentLayout>
         </>
     )
 }
 
-export default DashboardHeader;
+export default Header;

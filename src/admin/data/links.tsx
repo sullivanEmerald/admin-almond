@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faEye, faTrademark, faRightFromBracket, } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faEye, faTrademark, faRightFromBracket, faSquare } from "@fortawesome/free-solid-svg-icons";
 import { product, trades, orders } from "../apis/panel";
+import { combineIcons } from "../function/conbineicons";
 
 const Navlinks = [
-
 
     {
         label: 'Create product',
         href: product.create,
-        icon: <FontAwesomeIcon icon={faPlus} />
+        icon: combineIcons(faSquare, faPlus)
     },
 
     {
@@ -32,7 +32,7 @@ const Navlinks = [
     {
         label: 'Create Category',
         href: orders.view,
-        icon: <FontAwesomeIcon icon={faPlus} />
+        icon: combineIcons(faSquare, faPlus)
     },
 
     {

@@ -36,6 +36,25 @@ button:disabled {
 }
 
 
+.fontawesomeIcon1 {
+    font-size: 15px;
+    color: var(--element-background-color);
+    display: inline-block;
+    border: 2px solid var(--primary-color);
+    font-weight: 200px;
+    border-radius: 5px;
+
+}
+
+.fontawesomeIcon2 {
+    position: absolute;
+    color: var(--primary-color);
+    font-size: 12px;
+    left: 3px;
+    top: 5px;
+}
+
+
 /****************************************
     ADMIN: LANDING PAGE
 *****************************************/
@@ -127,7 +146,7 @@ button:disabled {
     border: 1px solid var(--background-color);
     border-radius: 5px;
     box-shadow: 0 0 15px var(--primary-color);
-    width: 80%;
+    width: 50%;
     background: var(--white-color);
     color: var(--primary-color);
     margin: 10px auto;
@@ -215,7 +234,7 @@ button:disabled {
 }
 
 .logo-image {
-    width: 60%;
+    width: 50%;
     object-fit: cover;
     display: inline-block;
     align-self: center;
@@ -238,19 +257,19 @@ button:disabled {
     padding: 0;
     margin: 0;
     flex-direction: column;
-    gap: 25px;
+    gap: 12px;
 }
 
-.admin_links {
-    padding: 0;
-    margin: 0;
-}
 
 .admin_goto {
     text-decoration: none;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 13px;
     color: var(--primary-color);
+    padding: 8px;
 }
+
 
 .admin_goto:hover {
     color: var(--white-color);
@@ -296,6 +315,10 @@ button:disabled {
 .mainLayOut {
     margin-left: 21%;
     width: calc(79% - 10px);
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    flex-wrap: nowrap;
 }
 
 .headerContainer {

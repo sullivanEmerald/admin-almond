@@ -8,7 +8,10 @@ const Navigation = () => {
                 <ul className="admin_list">
                     {Navlinks?.map(({ label, href, icon }, index) => (
                         <li key={index} className="admin_links">
-                            <Link className="admin_goto" to={href}>{icon} {label}</Link>
+                            <Link className="admin_goto" to={href}>
+                                {icon}
+                                {label}
+                            </Link>
                         </li>
                     ))}
                 </ul>

@@ -4,7 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderContent = () => {
     return (
-        <div className="headerContainer">
+        <>
             <div style={{ width: '45%', position: 'relative' }}>
                 <FontAwesomeIcon
                     icon={faSearch}
@@ -24,7 +24,7 @@ const HeaderContent = () => {
                     }}
                 />
             </div>
-        </div>
+        </>
     );
 };
 

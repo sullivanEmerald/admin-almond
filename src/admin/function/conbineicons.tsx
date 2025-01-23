@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import IconPair from "../types/icon"
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
-export const conbineIcons : React.FC<IconPair> =  ({ iconFirst, iconSecond}) => {
-    return (
-        <>
-            <span>
-                <FontAwesomeIcon icon={iconFirst} />
-                <FontAwesomeIcon icon={iconSecond} />
-            </span>
-        </>
-    )
-}
-
-export default conbineIcons;
+export const combineIcons = (icon1: IconDefinition, icon2: IconDefinition) => (
+    <span style={{ position: "relative" }}>
+        <FontAwesomeIcon
+            icon={icon1}
+            className='fontawesomeIcon1'
+        />
+        <FontAwesomeIcon
+            icon={icon2}
+            className='fontawesomeIcon2'
+        />
+    </span>
+);
