@@ -1,7 +1,7 @@
 import { nestedChildrenOnly } from "@/admin/types/layout";
-import Aside from "../components/aside";
-import Header from "../components/header";
-import Main from "../components/main";
+import Aside from "../mainComponents/aside";
+import Header from "../mainComponents/header";
+import Main from "../mainComponents/main";
 
 const DashboardStructure: React.FC<nestedChildrenOnly> = ({ children }) => {
     return (

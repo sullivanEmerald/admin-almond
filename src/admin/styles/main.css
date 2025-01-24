@@ -7,6 +7,7 @@
 
 body {
     background-color: var(--background-color) !important;
+    color: var(--primary-color);
 }
 
 button {
@@ -51,7 +52,7 @@ button:disabled {
     color: var(--primary-color);
     font-size: 12px;
     left: 3px;
-    top: 5px;
+    top: 3px;
 }
 
 
@@ -350,4 +351,37 @@ button:disabled {
     border: 1px solid #ced4da;
     border-radius: 4px;
     box-shadow: none;
+}
+
+
+/*****************************************
+    DASHBOARD MAIN CONTENT
+******************************************/
+
+/* .dashboardCategory {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 20px;
+} */
+
+.categoryContainer {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-color: var(--element-background-color);
+    outline: none;
+    position: relative;
+    /* overflow: hidden; */
+
+}
+
+.categoryImage {
+    display: block;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 15px;
+
 }
