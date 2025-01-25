@@ -358,30 +358,42 @@ button:disabled {
     DASHBOARD MAIN CONTENT
 ******************************************/
 
-/* .dashboardCategory {
+.dashboardCategory {
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    column-gap: 20px;
-} */
+    flex-wrap: nowrap;
+    column-gap: 50px;
+    width: inherit;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.dashboardCategory::-webkit-scrollbar {
+    display: none;
+}
 
 .categoryContainer {
+    flex: 0 0 auto;
     width: 180px;
     height: 180px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: var(--element-background-color);
     outline: none;
     position: relative;
-    /* overflow: hidden; */
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow-x: hidden; */
 }
 
 .categoryImage {
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     width: 200px;
     height: 200px;
     position: absolute;
-    top: 15px;
 
 }
