@@ -320,14 +320,19 @@ button:disabled {
     flex-direction: column;
     row-gap: 15px;
     flex-wrap: nowrap;
+    position: relative;
+    min-height: 100vh;
 }
 
-.headerContainer {
+.headerContainer,
+.footerAside,
+.footerFooter {
     background: var(--white-color);
     border-radius: 10px;
     padding-inline: 20px;
     padding-block: 20px;
     position: relative;
+    max-width: 100%;
 
 }
 
@@ -386,7 +391,7 @@ button:disabled {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* overflow-x: hidden; */
+    overflow: clip;
 }
 
 .categoryImage {
@@ -396,4 +401,26 @@ button:disabled {
     height: 200px;
     position: absolute;
 
+}
+
+/*****************************************
+    DASHBOARD FOOTER
+******************************************/
+
+.dashboardFooter {
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 10px;
+}
+
+#footerAside {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+#footerFooter {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
 }

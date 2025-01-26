@@ -3,7 +3,8 @@ const relativeRoutes = {
     dashboard: 'dashboard',
     item: 'product',
     order: 'order',
-    trade: 'trade'
+    trade: 'trade',
+    category: '/category'
 }
 
 export default relativeRoutes;

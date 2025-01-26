@@ -2,6 +2,7 @@ import { nestedChildrenOnly } from "@/admin/types/layout";
 import Aside from "../mainComponents/aside";
 import Header from "../mainComponents/header";
 import Main from "../mainComponents/main";
+import Footer from "../mainComponents/footer";
 
 const DashboardStructure: React.FC<nestedChildrenOnly> = ({ children }) => {
     return (
@@ -13,6 +14,7 @@ const DashboardStructure: React.FC<nestedChildrenOnly> = ({ children }) => {
                     <Main>
                         {children}
                     </Main>
+                    <Footer />
                 </section>
             </div>
         </>

@@ -1,5 +1,5 @@
 import relativeRoutes from "../relativeroutes/routes"
-const { route, item, order, trade, dashboard } = relativeRoutes
+const { route, item, order, trade, dashboard, category } = relativeRoutes
 
 
 const adminApis = {
@@ -9,6 +9,10 @@ const adminApis = {
     },
     admin: {
         dashboard: dashboard,
+    },
+
+    getCategory: {
+        categories: `${dashboard}${category}`
     },
     product: {
         create: `${item}/create`,
@@ -21,6 +25,6 @@ const adminApis = {
         view: `${trade}s`
     },
 }
-const { routes, admin, product, orders, trades } = adminApis;
+const { routes, admin, product, orders, trades, getCategory } = adminApis;
 
-export { routes, admin, product, orders, trades }
+export { routes, admin, product, orders, trades, getCategory }
