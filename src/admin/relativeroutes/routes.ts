@@ -1,6 +1,6 @@
 const relativeRoutes = {
     route: '/',
-    dashboard: 'dashboard',
+    dashboard: '/dashboard',
     item: 'product',
     order: 'order',
     trade: 'trade',

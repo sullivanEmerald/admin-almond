@@ -424,3 +424,89 @@ button:disabled {
     text-align: center;
     width: 100%;
 }
+
+/************************************************************************************************************************
+                                CATEGORY ROUTES
+*************************************************************************************************************************/
+
+.categoryHeaderContents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.categorySort>* {
+    border: 1px solid var(--primary-color);
+    padding: 7px;
+}
+
+.categorySort>a:nth-child(even) {
+    border-left: none;
+    border-right: none;
+    display: inline-block;
+}
+
+.searchFilter {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.categoryHomeLink {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+/*****************************************
+   CATEGORY INDIVIDUAL PRODUCTS
+******************************************/
+
+.product {
+    width: 30%;
+    height: 450px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.productLogo {
+    width: 40%;
+    padding: 10px;
+    color: var(--white-color);
+    background: var(--primary-color);
+    text-align: center;
+    font-weight: 500;
+    outline: none;
+    border-radius: 0 9999px 9999px 0;
+}
+
+.productButtons {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+#productActionButton {
+    border: 1px solid var(--primary-color) !important;
+    background: initial;
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    display: block;
+    border-radius: 10px;
+    width: 30%;
+    transition: all 0.7s ease-in-out;
+}
+
+#productActionButton:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+}

@@ -1,9 +1,9 @@
 import DashbooardContentLayout from "@/admin/middleware/dashboardContent"
-
+import CategoryHeaderContents from "../contents/categoryHeader";
 const CategoryHeader = () => {
     return (
         <DashbooardContentLayout>
-            Sullivan
+            <CategoryHeaderContents />
         </DashbooardContentLayout>
     )
 }

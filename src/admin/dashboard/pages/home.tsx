@@ -9,7 +9,7 @@ const Dashboard = () => {
         <Category image='images/dashboard/groceries.png' />
         <Category image='images/dashboard/laptop.png' />
         <Category image='images/dashboard/electronics.png' />
-        <Category image='images/dashboard/phone.png' />
+        <Category image='images/dashboard/samsung.png' />
       </div>
     </>
   )

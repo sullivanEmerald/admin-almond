@@ -8,7 +8,6 @@ import CategoryLayout from "../middleware/categoryLayout";
 
 const { DASHBOARD, CREATE, LOGIN, REGISTER, PRODUCTS } = ADMIN_PAGES;
 
-console.log(getCategory)
 
 const AdminRoutes = () => {
 
@@ -23,14 +22,13 @@ const AdminRoutes = () => {
                 <Route element={<Dashboardlayout />}>
                     <Route path={admin.dashboard} element={<DASHBOARD />} />
                     <Route path={product.create} element={<CREATE />} />
-                    <Route path={product.view} element={<PRODUCTS />} />
                 </Route>
             </Route>
 
 
             <Route path={getCategory.categories}>
                 <Route element={<CategoryLayout />}>
-                    <Route index element={<p>Sullivan Amadike</p>} />
+                    <Route index element={<PRODUCTS />} />
                 </Route>
             </Route>
         </Routes>

@@ -1,4 +1,5 @@
 import { nestedChildrenOnly } from "@/admin/types/layout";
+import PageOut from "@/admin/middleware/pageLayout";
 import Aside from "../mainComponents/aside";
 import Header from "../mainComponents/header";
 import Main from "../mainComponents/main";
@@ -9,13 +10,13 @@ const DashboardStructure: React.FC<nestedChildrenOnly> = ({ children }) => {
         <>
             <div className="dashboardLayout">
                 <Aside />
-                <section className="mainLayOut">
+                <PageOut>
                     <Header />
                     <Main>
                         {children}
                     </Main>
                     <Footer />
-                </section>
+                </PageOut>
             </div>
         </>
     )

@@ -1,8 +1,12 @@
+import Product from "../components/Product";
+
 const Products = () => {
     return (
-        <>
-            <p>Thi is the view all products page</p>
-        </>
+        <div>
+            <Product />
+            <Product />
+            <Product />
+        </div>
     )
 }
 
