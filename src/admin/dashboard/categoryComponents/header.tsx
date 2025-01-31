@@ -1,10 +1,10 @@
-import DashbooardContentLayout from "@/admin/middleware/dashboardContent"
+import ProductHeader from "@/admin/middleware/headerLayout";
 import CategoryHeaderContents from "../contents/categoryHeader";
 const CategoryHeader = () => {
     return (
-        <DashbooardContentLayout>
+        <ProductHeader>
             <CategoryHeaderContents />
-        </DashbooardContentLayout>
+        </ProductHeader>
     )
 }
 

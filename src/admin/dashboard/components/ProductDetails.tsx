@@ -7,7 +7,7 @@ const ProductDetails = () => {
             <footer className="productButtons">
                 <button id="productActionButton">Edit</button>
                 <button id="productActionButton">Delete</button>
-                <button id="productActionButton">Status</button>
+                <button id="productActionButton">View more</button>
             </footer>
         </>
     )

@@ -333,8 +333,18 @@ button:disabled {
     padding-block: 20px;
     position: relative;
     max-width: 100%;
-
 }
+
+.productHeader {
+    background: var(--white-color);
+    position: sticky;
+    top: 0;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 100%;
+    z-index: 100;
+}
+
 
 .headerContainer {
     position: relative;
@@ -462,15 +472,22 @@ button:disabled {
    CATEGORY INDIVIDUAL PRODUCTS
 ******************************************/
 
+.produtsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
 .product {
-    width: 30%;
+    width: 23%;
     height: 450px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
 .productLogo {
-    width: 40%;
+    width: 50%;
     padding: 10px;
     color: var(--white-color);
     background: var(--primary-color);

@@ -6,15 +6,13 @@ import CategoryProducts from "../categoryComponents/CategoryMain";
 
 const CategoryStructure: React.FC<nestedChildrenOnly> = ({ children }) => {
     return (
-        <>
-            <div>
-                <CategoryHeader />
-                <CategoryAside />
-                <PageOut>
-                    <CategoryProducts children={children} />
-                </PageOut>
-            </div>
-        </>
+        <div style={{ padding: '10px' }}>
+            <CategoryHeader />
+            <CategoryAside />
+            <PageOut>
+                <CategoryProducts children={children} />
+            </PageOut>
+        </div>
     )
 }
 
