@@ -5,7 +5,9 @@ const Product = () => {
         <>
             <section className="product">
                 <ProductLogo />
-                <ProductDetails />
+                <div>
+                    <ProductDetails />
+                </div>
             </section>
         </>
     )

@@ -296,7 +296,7 @@ button:disabled {
 
 .dashboarodLogoAndNav {
     background: var(--element-background-color);
-    width: 20%;
+    width: 17%;
     border-radius: 10px;
     height: 100%;
     display: flex;
@@ -314,8 +314,8 @@ button:disabled {
 
 
 .mainLayOut {
-    margin-left: 21%;
-    width: calc(79% - 10px);
+    margin-left: 18%;
+    width: calc(82% - 10px);
     display: flex;
     flex-direction: column;
     row-gap: 15px;
@@ -438,6 +438,12 @@ button:disabled {
 /************************************************************************************************************************
                                 CATEGORY ROUTES
 *************************************************************************************************************************/
+.categoryProductHeader {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .categoryHeaderContents {
     display: flex;
@@ -484,6 +490,13 @@ button:disabled {
     height: 450px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     position: relative;
+    padding-block: 15px;
+}
+
+.productInfos {
+    padding: 15px;
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 .productLogo {
